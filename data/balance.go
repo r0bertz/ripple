@@ -128,8 +128,8 @@ func (txm *TransactionWithMetaData) Balances() (BalanceSlice, error) {
 				if err != nil {
 					return nil, err
 				}
-				balances.Add(&current.HighLimit.Issuer, current.Balance.Value, change.Value, &current.Balance.Currency)
-				balances.Add(&current.LowLimit.Issuer, current.Balance.Value.Negate(), change.Value.Negate(), &current.Balance.Currency)
+				balances.Add(&current.HighLimit.Issuer, current.Balance.Value.Negate(), change.Value.Negate(), &current.Balance.Currency)
+				balances.Add(&current.LowLimit.Issuer, current.Balance.Value, change.Value, &current.Balance.Currency)
 			}
 		}
 	}
