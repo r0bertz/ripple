@@ -1,7 +1,7 @@
 package data
 
 import (
-	. "github.com/rubblelabs/ripple/testing"
+	. "github.com/r0bertz/ripple/testing"
 	. "gopkg.in/check.v1"
 )
 
