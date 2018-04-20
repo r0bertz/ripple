@@ -182,6 +182,7 @@ func (t *TxBase) GetSignature() *VariableLength       { return t.TxnSignature }
 func (t *TxBase) SigningPrefix() HashPrefix           { return HP_TRANSACTION_SIGN }
 func (t *TxBase) PathSet() PathSet                    { return PathSet(nil) }
 func (t *TxBase) GetHash() *Hash256                   { return &t.Hash }
+func (t *TxBase) GetDate() RippleTime                 { return t.Date }
 
 func (t *TxBase) Compare(other *TxBase) int {
 	switch {

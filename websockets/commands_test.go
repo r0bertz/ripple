@@ -83,12 +83,12 @@ func (s *MessagesSuite) TestTxResponse(c *C) {
 	c.Assert(msg.Type, Equals, "response")
 
 	// Result fields
-	c.Assert(msg.Result.Date.String(), Equals, "2014-May-30 13:11:50")
 	c.Assert(msg.Result.Validated, Equals, true)
 	c.Assert(msg.Result.MetaData.AffectedNodes, HasLen, 4)
 	c.Assert(msg.Result.MetaData.TransactionResult.String(), Equals, "tesSUCCESS")
 
 	offer := msg.Result.Transaction.(*data.OfferCreate)
+	c.Assert(msg.Result.GetDate().String(), Equals, "2014-May-30 13:11:50")
 	c.Assert(msg.Result.GetHash().String(), Equals, "2D0CE11154B655A2BFE7F3F857AAC344622EC7DAB11B1EBD920DCDB00E8646FF")
 	c.Assert(offer.GetType(), Equals, "OfferCreate")
 	c.Assert(offer.Account.String(), Equals, "rwpxNWdpKu2QVgrh5LQXEygYLshhgnRL1Y")
