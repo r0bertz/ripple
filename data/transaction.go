@@ -7,6 +7,7 @@ type TxBase struct {
 	Account            Account
 	Sequence           uint32
 	Fee                Value
+	Date               RippleTime      `json:"date,omitempty"`
 	AccountTxnID       *Hash256        `json:",omitempty"`
 	SigningPubKey      *PublicKey      `json:",omitempty"`
 	TxnSignature       *VariableLength `json:",omitempty"`
