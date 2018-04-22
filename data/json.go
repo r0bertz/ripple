@@ -91,9 +91,11 @@ func (txm *TransactionWithMetaData) UnmarshalJSON(b []byte) error {
 	// Parse the rest in one shot
 	extract := &struct {
 		*txmNormal
+		Date     *RippleTime
 		MetaData *MetaData `json:"metaData"`
 	}{
 		txmNormal: (*txmNormal)(txm),
+		Date:      &txm.Date,
 		MetaData:  &txm.MetaData,
 	}
 	return json.Unmarshal(b, extract)

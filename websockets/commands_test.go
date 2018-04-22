@@ -84,11 +84,11 @@ func (s *MessagesSuite) TestTxResponse(c *C) {
 
 	// Result fields
 	c.Assert(msg.Result.Validated, Equals, true)
+	c.Assert(msg.Result.Date.String(), Equals, "2014-May-30 13:11:50")
 	c.Assert(msg.Result.MetaData.AffectedNodes, HasLen, 4)
 	c.Assert(msg.Result.MetaData.TransactionResult.String(), Equals, "tesSUCCESS")
 
 	offer := msg.Result.Transaction.(*data.OfferCreate)
-	c.Assert(msg.Result.GetDate().String(), Equals, "2014-May-30 13:11:50")
 	c.Assert(msg.Result.GetHash().String(), Equals, "2D0CE11154B655A2BFE7F3F857AAC344622EC7DAB11B1EBD920DCDB00E8646FF")
 	c.Assert(offer.GetType(), Equals, "OfferCreate")
 	c.Assert(offer.Account.String(), Equals, "rwpxNWdpKu2QVgrh5LQXEygYLshhgnRL1Y")
@@ -107,6 +107,7 @@ func (s *MessagesSuite) TestAccountTxResponse(c *C) {
 	c.Assert(msg.Type, Equals, "response")
 
 	c.Assert(len(msg.Result.Transactions), Equals, 2)
+	c.Assert(msg.Result.Transactions[1].Date.String(), Equals, "2014-Jun-19 14:14:40")
 	offer := msg.Result.Transactions[1].Transaction.(*data.OfferCreate)
 	c.Assert(offer.TakerPays.String(), Equals, "0.034800328/BTC/rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B")
 }
