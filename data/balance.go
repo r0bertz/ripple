@@ -68,7 +68,7 @@ func (m *BalanceMap) Add(account *Account, counterparty *Account, balance, chang
 }
 
 func (txm *TransactionWithMetaData) Balances() (BalanceMap, error) {
-	if txm.GetTransactionType() != OFFER_CREATE && txm.GetTransactionType() != PAYMENT {
+	if txm.GetTransactionType() != OFFER_CREATE && txm.GetTransactionType() != PAYMENT && txm.GetTransactionType() != PAYCHAN_CLAIM {
 		return nil, nil
 	}
 	balanceMap := BalanceMap{}
